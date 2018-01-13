@@ -2,7 +2,7 @@ package sort;
 
 public class Main {
 	
-	public static final int nElements = 100;
+	public static final int nElements = 10;
 	
 	public static void main(String[] args) {
 		
@@ -23,6 +23,7 @@ public class Main {
 		}
 		System.out.println();
 		System.out.println("Time elapsed: " + ((float)diff)/1000 + "s");
-		
+		System.out.println("Compares: " + sort.bigOhCompare);
+		System.out.println("Chnages:  " + sort.bigOhChange);
 	}
 }
