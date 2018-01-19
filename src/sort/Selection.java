@@ -13,6 +13,7 @@ public class Selection extends Sort {
 					min = j;
 				}
 			}
+			bigOhCompare++;
 			bigOhChange++;
 			int temp = arr[i];
 			arr[i] = arr[min];

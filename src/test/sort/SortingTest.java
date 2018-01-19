@@ -2,7 +2,7 @@ package test.sort;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import sort.Bubble;
 import sort.Insertion;
@@ -21,7 +21,7 @@ class SortingTest {
 
 	// Method to generate a random array
 	private int[] randomArray() {
-		int[] arr = new int[1000];
+		int[] arr = new int[100];
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = i;
 		}
@@ -81,28 +81,12 @@ class SortingTest {
 	
 	// Test mergeArrays with iteration until one array is empty
 	@Test
-	void testMergeArrays1() {
-		int[] arr1 = randomArray();
-		int[] arr2 = randomArray();
-		Sort quicksort = new Quick();
-		arr1 = quicksort.sort(arr1);
-		arr2 = quicksort.sort(arr2);
-		Merge sort = new Merge();
-		int[] merged = sort.mergeArrays2(arr1, arr2);
-		assertTrue(Sort.isSorted(merged));
-	}
-	
-	// Test mergeArrays with iteration until the final array is full
-	@Test
-	void testMergeArrays2() {
-		int[] arr1 = randomArray();
-		int[] arr2 = randomArray();
-		Sort quicksort = new Quick();
-		arr1 = quicksort.sort(arr1);
-		arr2 = quicksort.sort(arr2);
-		Merge sort = new Merge();
-		int[] merged = sort.mergeArrays(arr1, arr2);
-		assertTrue(Sort.isSorted(merged));
+	void testMerge() {
+		int[] arr = randomArray();
+		Sort sort = new Merge();
+		boolean res = Sort.isSorted(sort.sort(arr));
+		assertTrue(res);
+		System.out.println("Merge sort\tOK");
 	}
 
 }

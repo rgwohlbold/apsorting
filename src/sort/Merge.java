@@ -9,8 +9,9 @@ public class Merge extends Sort {
      */
 	@Override
 	public int[] sort(int[] arr) {
-		// TODO Auto-generated method stub
-		return null;
+		int[] temp = new int[arr.length];
+		mergeSortEngine(arr, 0, arr.length - 1, temp);
+		return arr;
 	}
 
 
@@ -28,7 +29,48 @@ public class Merge extends Sort {
 	private int[] merge(int[] left, int[] right) {
 		return null;
 	}
+	
+	private void mergeSortEngine(int[] elements, int from, int to, int[] temp) {
+		if (from < to) {
+			int middle = (from + to) / 2;
+			mergeSortEngine(elements, from, middle, temp);
+			mergeSortEngine(elements, middle + 1, to, temp);
+			mergeArrays(elements, from, middle, to, temp);
+		}
+	}
+	
+	private void mergeArrays(int[] elements, int from, int middle, int to, int[] temp) {
+		int i = from;
+		int j = middle + 1;
+		int k = from;
+		
+		while(i <= middle && j <= to) {
+			bigOhCompare += 3; // three comparisons per iteration
+			if (elements[i] < elements[j]) {
+				temp[k++] = elements[i++];
+			}
+			else {
+				temp[k++] = elements[j++];
+			}
+		}
+		
+		while (i <= middle) {
+			temp[k++] = elements[i++];
+			bigOhChange++;
+		}
+		
+		while (j <= to) {
+			temp[k++] = elements[j++];
+			bigOhChange++;
+		}
+		
+		for (k = from; k <= to; k++) {
+			elements[k] = temp[k];
+			bigOhChange++;
+		}
+	}
 
+	/*
 	/**
      * mergeArrays will merge two sorted arrays into one sorted array. It does
      * this by taking advantage of the fact that the two array are defined as
@@ -42,7 +84,7 @@ public class Merge extends Sort {
      * @param to the last index of the right side array
      * @param temp a temporary array for building the merge
      *
-     */
+     
 	public int[] mergeArrays2(int[] left, int[] right) {
 		int[] result = new int[left.length + right.length];
 		int leftPointer = 0;
@@ -88,38 +130,5 @@ public class Merge extends Sort {
 		}
 		return result;
 	}
-
-
-        // i is the pointer that keeps track of the index from the left side array
-
-
-        // j is the pointer that keeps track of the index from the right side array
-
-
-        // k is the pointer that keeps track of the index of the array you are
-        // building with the merge
-
-
-        // as long as one of the two pointers to the left or right side array 
-        // has not passed their last index - keep doing this loop....
-
-            // if the current left array value is less than the current right 
-            // array value - place it in the next spot in the temp array
-
-	    // else place the current value from the right side array in the
-            // next spot in the temp array
-            
-            // next temp array position
-        // end while            
-        
-
-        // if I am here - one of the pointers to either the left or right side
-        // array has gone past its end and has no more elements to contribute 
-        // to the temp array - so I will run just one of the below  blocks to 
-        // place the rest of the sorted elements in the temp array - the other 
-        // block will not run because the pointer has past the ending value.
-
-
-        // transfer all temp elements to the actual array we are using
-	
+	*/
 }

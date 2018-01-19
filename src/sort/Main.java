@@ -2,7 +2,7 @@ package sort;
 
 public class Main {
 	
-	public static final int nElements = 10;
+	public static final int nElements = 10000;
 	
 	public static void main(String[] args) {
 		
@@ -12,7 +12,7 @@ public class Main {
 		}
 		int[] unsorted = Sort.shuffle(sorted);
 		
-		Sort sort = new Sleep();
+		Sort sort = new Selection();
 		
 		long prev = System.currentTimeMillis();
 		int[] newsorted = sort.sort(unsorted);
@@ -24,6 +24,6 @@ public class Main {
 		System.out.println();
 		System.out.println("Time elapsed: " + ((float)diff)/1000 + "s");
 		System.out.println("Compares: " + sort.bigOhCompare);
-		System.out.println("Chnages:  " + sort.bigOhChange);
+		System.out.println("Changes:  " + sort.bigOhChange);
 	}
 }

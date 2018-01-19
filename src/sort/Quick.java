@@ -40,14 +40,14 @@ public class Quick extends Sort {
 			}
 			current++;
 		}
-		this.bigOhCompare += 3;
 		
 		this.bigOhChange++;
 		// swap pivot with first unsorted element
 		arr[pivotPointer] = arr[wall];
 		arr[wall] = pivot;
 		
-		
+
+		this.bigOhCompare += 3;
 		
 		// only do left quicksort if there is a left sublist
 		if (wall != left) {
